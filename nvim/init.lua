@@ -2,6 +2,8 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -18,28 +20,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-
-vim.keymap.set('n', '<c-n>', ':NvimTreeFindFile<CR>')
-vim.keymap.set('n', '<c-m>', ':NvimTreeToggle<CR>')
+require("lazy").setup("plugins")
 
 
-require("core.plugins")
-require("core.plugin_config")
-
-
-require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
-
-
-require("core.options")
-require("core.keymaps")
