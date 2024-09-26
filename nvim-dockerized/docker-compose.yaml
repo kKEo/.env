@@ -1,0 +1,10 @@
+version: '3'
+services:
+  nvim:
+    build:
+       context: .
+       dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: nvim
+    volumes:
+    - ".:/src"
